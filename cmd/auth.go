@@ -28,7 +28,7 @@ from the Nudgen web dashboard.`,
 
 		port := "3456"
 		callbackURL := fmt.Sprintf("http://localhost:%s/callback", port)
-		loginURL := fmt.Sprintf("http://localhost:3000/settings/cli/login?callback=%s", callbackURL)
+		loginURL := fmt.Sprintf("https://app.nudgen.net/settings/cli/login?callback=%s", callbackURL)
 
 		fmt.Println("Opening your browser to authenticate with Nudgen.")
 		fmt.Printf("If the browser does not open automatically, visit:\n%s\n\n", loginURL)

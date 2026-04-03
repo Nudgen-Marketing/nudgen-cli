@@ -9,7 +9,7 @@ import (
 	"time"
 )
 
-const DefaultBaseURL = "http://localhost:3000/api/v1"
+const DefaultBaseURL = "https://app.nudgen.net/api/v1"
 
 type Client struct {
 	BaseURL    string
