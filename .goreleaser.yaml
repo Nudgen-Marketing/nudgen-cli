@@ -1,0 +1,53 @@
+version: 2
+project_name: nudgen
+
+builds:
+  - id: nudgen
+    main: .
+    binary: nudgen
+    env:
+      - CGO_ENABLED=0
+    goos:
+      - darwin
+      - linux
+      - windows
+    goarch:
+      - amd64
+      - arm64
+    flags:
+      - -trimpath
+    ldflags:
+      - -s -w
+      - -X github.com/nudgen/nudgen-cli/internal/version.Version={{.Version}}
+      - -X github.com/nudgen/nudgen-cli/internal/version.Commit={{.Commit}}
+      - -X github.com/nudgen/nudgen-cli/internal/version.Date={{.Date}}
+    hooks:
+      post:
+        - cmd: chmod +x {{ .Path }}
+          output: true
+
+archives:
+  - id: default
+    formats:
+      - tar.gz
+    name_template: "{{ .ProjectName }}_{{ .Version }}_{{ .Os }}_{{ .Arch }}"
+    format_overrides:
+      - goos: windows
+        formats:
+          - zip
+    files:
+      - README*
+      - docs/*
+
+checksum:
+  name_template: 'checksums.txt'
+  algorithm: sha256
+
+release:
+  github:
+    owner: Nudgen-Marketing
+    name: nudgen-cli
+  draft: false
+  prerelease: auto
+  replace_existing_artifacts: true
+  name_template: "Nudgen CLI v{{.Version}}"
