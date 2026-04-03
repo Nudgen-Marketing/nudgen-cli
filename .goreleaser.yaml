@@ -50,4 +50,4 @@ release:
   draft: false
   prerelease: auto
   replace_existing_artifacts: true
-  name_template: "Nudgen CLI v{{.Version}}"
+  name_template: "{{.Tag}}"
