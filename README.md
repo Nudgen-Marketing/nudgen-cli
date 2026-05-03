@@ -10,7 +10,7 @@
 ## Quick Start
 
 ```bash
-curl -fsSL https://raw.githubusercontent.com/Nudgen-Marketing/nudgen-cli/main/scripts/install.sh | bash
+curl -fsSL https://cli.nudgen.net | bash
 ```
 
 That's it. You now have full access to Nudgen from your terminal.
